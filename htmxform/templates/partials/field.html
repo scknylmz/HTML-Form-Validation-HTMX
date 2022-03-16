@@ -1,0 +1,27 @@
+<div class="co-12" id="id-name-error">
+    
+    {% if form != "No Error" %}
+    {% for error in form %}<p class="login-box-msg" style="color: red;">{{error}}</p>{% endfor %}
+    {% else %}
+    <p></p>
+    {% endif %}
+
+    {% if valid %}
+    <input type="submit" 
+        name="submit" 
+        value="Submit" 
+        class="btn btn-primary" 
+        id="submit-id-submit"
+        hx-swap-oob='true'>
+
+    {% else %}
+    <input type="submit" 
+            name="submit" 
+            value="Submit" 
+            class="btn btn-primary" 
+            id="submit-id-submit"
+            hx-swap-oob='true'
+            disabled>
+    {% endif %}    
+</div>
+

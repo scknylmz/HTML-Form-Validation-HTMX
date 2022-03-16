@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <p>
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text text-center">HTMX FORM VALIDATION</h2>
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>HTML Form / HTMX / Django | Form Validation</p>
+            <form method="POST" id="login-form" enctype="multipart/form-data" >
+                {% csrf_token %}
+                <div class="row col-md-12 offset-md-3">
+                    <div class="col-2">
+                        {{form.name.label}}:
+                    </div>
+                    <div class="col-10">
+                        {{form.name}}
+                        <div class="co-12" id="id-name-error">   
+                        {% for error in form.errors.name %}<p class="login-box-msg" style="color: red;">{{error}}</p>{% endfor %}
+                        <p>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        {{form.email.label}}:
+                    </div>
+                    <div class="col-10">
+                        {{form.email}}
+                        <div class="co-12" id="id-email-error"> 
+                        {% for error in form.errors.email %}<p class="login-box-msg" style="color: red;">{{error}}</p>{% endfor %}
+                        <p>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        {{form.password.label}}:
+                    </div>
+                    <div class="col-10">
+                        {{form.password}}
+                        <div class="co-12" id="id-password-error"> 
+                        {% for error in form.errors.password %}<p class="login-box-msg" style="color: red;">{{error}}</p>{% endfor %}
+                        <p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <input type="submit" name="submit" value="Submit" class="btn btn-primary" id="submit-id-submit" form="login-form">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
